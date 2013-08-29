@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>Highstock Example</title>
+		<script src="jquery.min.js"></script>
+		<script src="highcharts.js"></script>
+		<script src="exporting.js"></script>
+		<script type="text/javascript">
+			function plotChart(cat, mtd, ytd) {
+		        Ti.API.info('Webview: plotChart()');
+		        
+		        new Highcharts.Chart({
+		            chart: {
+		            	renderTo: 'container',
+		                plotBackgroundColor: null,
+		                plotBorderWidth: null,
+		                plotShadow: false
+		            },
+		            title: {
+		                text: 'Browser market shares at a specific website, 2010'
+		            },
+		            tooltip: {
+		        	    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+		            },
+		            plotOptions: {
+		                pie: {
+		                    allowPointSelect: true,
+		                    cursor: 'pointer',
+		                    dataLabels: {
+		                        enabled: false
+		                    },
+		                    showInLegend: false
+		                }
+		            },
+		            series: [{
+		                type: 'pie',
+		                name: 'Browser share',
+		                data: [
+		                    ['Firefox',   45.0],
+		                    ['IE',       26.8],
+		                    {
+		                        name: 'Chrome',
+		                        y: 12.8,
+		                        sliced: false,
+		                        selected: false
+		                    },
+		                    ['Safari',    8.5],
+		                    ['Opera',     6.2],
+		                    ['Others',   0.7]
+		                ]
+		            }]
+		        });
+			}
+		</script>
+	</head>
+
+	<body>
+		<div id="container"></div>
+	</body>
+</html> 
