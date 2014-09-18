@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>Highstock Example</title>
+		<script src="jquery.min.jsf"></script>
+		<script src="highcharts.jsf"></script>
+		<script src="exporting.jsf"></script>
+		<script type="text/javascript">
+			function plotChart(data, cat, title) {
+		        Ti.API.info('Webview: plotChart()');
+		        
+		        new Highcharts.Chart({
+					chart: {
+						renderTo: 'container',
+						backgroundColor: null,
+						plotBackgroundColor: null,
+		                type: 'line'
+		            },
+		            exporting:{
+		            	enabled:false
+		            },
+		            credits:{
+						enabled:false
+					},
+					title: {
+			            text: title,
+			        },
+			        xAxis: {
+			            categories: cat
+			        },
+			        yAxis: {
+			        	title:{
+			        		text:''
+			        	},
+			            plotLines: [{
+			                value: 0,
+			                width: 1,
+			                color: '#808080'
+			            }]
+			        },
+			        tooltip: {
+			            valueSuffix: ''
+			        },
+			        legend: {
+			            layout: 'horizontal',
+			            align: 'center',
+			            verticalAlign: 'top',
+			            borderWidth: 0,
+			            y:20
+			        },
+			        series: data
+				});
+			}
+		</script>
+	</head>
+
+	<body>
+		<div id="container"></div>
+	</body>
+</html> 
